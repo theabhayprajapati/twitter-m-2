@@ -77,7 +77,7 @@ const Navigation = () => {
                                     More
                                 </h1>
                             </button>
-                            <button onClick={() => signIn()} className='flex mt-2 mx-2 w-[70%] items-center justify-center mr-24 nav-button bg-blue-500 font-bold text-sm hover:opacity-95 hover:bg-blue-400 '>
+                            <button onClick={() => console.log("signin button")} className='flex mt-2 mx-2 w-[70%] items-center justify-center mr-24 nav-button bg-blue-500 font-bold text-sm hover:opacity-95 hover:bg-blue-400 '>
                                 <h1>
                                     Tweet
                                 </h1>
@@ -107,7 +107,7 @@ const Navigation = () => {
                                 </div>
                             </button>
                         ) : (
-                            <button onClick={() => signIn()} className='nav-button w-full'>
+                            <button onClick={() => console.log("Add singin button")} className='nav-button w-full'>
                                 <div className='flex flex-col text-left'>
                                     <h1 className='text-white'>
                                         Sign in
