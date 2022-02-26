@@ -14,7 +14,7 @@ const LowerNav = () => {
     }
     const image = session?.user?.image || ''
     return (
-        <div className=" bottom-0 text-white fixed h-14 bg-black  border-2 md:hidden shadow-lg flex justify-evenly w-full items-center">
+        <div className=" bottom-0 text-white fixed h-14 bg-black  border-t-[.5px] border-gray-800 md:hidden shadow-lg flex justify-evenly w-full items-center">
             <button className='hover:scale-95 active:scale-95 rounded-full h-9 w-9   flex justify-center items-center focus:text-blue-500 focus:scale-95 focus:shadow-lg'>
 
                 <HomeIcon className="h-7 w-7  " />
