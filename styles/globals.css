@@ -1,3 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@200;300;400;500;600;700;800&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Saira:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&family=Syne:wght@400;500;600;700;800&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@layer components {
+    .navigation-item {
+      @apply hover:bg-gray-900 cursor-pointer
+    }
+    .nav-icons{
+        @apply h-6 text-white stroke-[.5px]
+    }
+    .nav-div {
+        @apply flex items-center space-x-3 cursor-pointer
+    }
+    .nav-button {
+        @apply flex justify-start space-x-2 items-center rounded-full h-12 px-5 py-2  hover:opacity-80 hover:bg-gray-900 focus:shadow-lg shadow-blue-500
+    }
+    .input-btn {
+        @apply h-6 text-blue-500
+    }
+    .input-icons {
+        @apply flex justify-center items-center rounded-full h-8 w-8 hover:opacity-80 hover:bg-gray-900 focus:shadow-lg shadow-blue-500
+    }
+  }
+
+
+body{
+background-color: black
+}
