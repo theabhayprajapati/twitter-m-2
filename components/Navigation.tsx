@@ -6,7 +6,14 @@ const Navigation = () => {
     // use session
     // const { data: session }:any = useSession<any>()
     const router = useRouter()
-    const session = true
+    const session = {
+        user: {
+            id: '1',
+            name: 'John Doe',
+            image: 'https://avatars2.githubusercontent.com/u/175727?s=460&u=e8d9c8f8b9f8f9c8f9c8f9c8f9c8f9c8f9c8f9c&v=4',
+            email: 'theabhayprajapati@gmail.com'
+        }
+    }
     console.log(session)
     const username = session?.user?.email.split("@")[0]
 
