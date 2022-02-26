@@ -4,6 +4,6 @@ module.exports = {
   // add image domain
   images: {
     domains: ['assets.acme.com', 'googleusercontent.com/', 'lh3.googleusercontent.com', "lh3.googleusercontent.com"],
-  },
+  }
 
 }
