@@ -2,6 +2,7 @@ import React from 'react'
 import { BellIcon, BookmarkIcon, CollectionIcon, DotsCircleHorizontalIcon, DotsHorizontalIcon, HashtagIcon, HomeIcon, InboxIcon, UserIcon } from '@heroicons/react/outline'
 import { signIn, signOut, useSession } from 'next-auth/react'
 import { useRouter } from 'next/router'
+import Image from 'next/image'
 const Navigation = () => {
     // use session
     const { data: session }: any = useSession<any>()
@@ -84,7 +85,7 @@ const Navigation = () => {
                         session ? (
                             <button className='nav-button w-full'>
 
-                                <img src={session?.user?.image} tabIndex={0} alt="notfound" className='nav-icons rounded-full h-10' />
+                                <Image src={session?.user?.image} tabIndex={0} alt="notfound" height="40px" width="40px" className='nav-icons rounded-full  ' />
                                 <div className='flex justify-between w-full items-center'>
                                     <div className='flex flex-col text-left rounded-full px-3 py-1' tabIndex={0}>
                                         <h1 className='text-white'>
