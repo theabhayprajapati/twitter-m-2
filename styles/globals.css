@@ -27,5 +27,11 @@
 
 
 body{
-background-color: black
+background-color: black;
+-webkit-tap-highlight-color: transparent;
+/* remove chrome on tap background*/
+
+}
+* {
+    -webkit-tap-highlight-color: transparent;
 }
