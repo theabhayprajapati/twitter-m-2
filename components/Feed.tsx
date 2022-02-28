@@ -9,9 +9,9 @@ const Feed = () => {
 
     const { data: session } = useSession()
     useEffect(() => {
-        console.log(session,"SESSION STATUS:--")
+        console.log(session, "SESSION STATUS:--")
     }, [session])
-    
+
 
 
     return (
