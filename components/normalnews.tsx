@@ -2,6 +2,8 @@ import { useRouter } from 'next/router'
 import React from 'react'
 
 const Normalnews = ({ name, title, image, url }: any) => {
+
+    
     const router = useRouter()
     return (
         <div onClick={() => router.push(url)} className=" cursor-pointer flex items-center overflow-y-scroll  text-white m-3">
