@@ -16,7 +16,7 @@ const Explore = ({ trending }: any) => {
                     Explore
                 </title>
                 {/* add twitterlogofavicon */}
-                
+
 
             </Head>
             <div className="md:hidden">
@@ -45,13 +45,13 @@ const Explore = ({ trending }: any) => {
 
                     {trending.slice(1, 4).map((item: any, index: number) => {
                         return (
-                            <Normalnews name={item.source.name} title={item.title} image={item.urlToImage} url={item.url} />
+                            <Normalnews key={item.urlToImage} name={item.source.name} title={item.title} image={item.urlToImage} url={item.url} />
                         )
                     })}
 
                     {trending.slice(4, 10).map((item: any, index: number) => {
                         return (
-                            <Normalnews name={item.source.name} title={item.title} image={item.urlToImage} url={item.url} />
+                            <Normalnews key={item.urlToImage} name={item.source.name} title={item.title} image={item.urlToImage} url={item.url} />
                         )
                     })}
 
