@@ -16,7 +16,7 @@ const LowerNav = () => {
     }
     const image = session?.user?.image || ''
     return (
-        <div className=" bottom-0 text-white fixed h-14 bg-black  border-t-[.5px] border-gray-800 md:hidden shadow-lg flex justify-evenly w-full items-center">
+        <div className="bottom-0 text-white fixed h-14 bg-black  border-t-[.5px] border-gray-800 md:hidden shadow-lg flex justify-evenly w-full items-center">
             <button onClick={() => router.push("/")} className='lowernav-btn'>
 
                 <HomeIcon className="h-7 w-7  " />

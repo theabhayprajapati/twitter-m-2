@@ -5,32 +5,57 @@ import LowerNav from '../components/lowernavigation'
 import Newscard from '../components/newscard'
 import Normalnews from '../components/normalnews'
 
-const Explore = () => {
-    const [trending, settrending] = useState<any>([])
-    //  fetch data from newsapi.org
-    useEffect(() => {
-        fetch(`https://newsapi.org/v2/top-headlines?country=us&apiKey=e3553a68781d448b87d4ebd624b4b888`)
-            .then(res => res.json())
-            .then(data => {
-                settrending([data.articles]);
-            })
-
-    }, [])
+const Explore = ({ trending }: any) => {
     console.log(
-        trending[0]
-    )
+        trending[0].title
+    );
     return (
         <div className="relative text-white">
             <Head>
                 <title>
+                    Explore
                 </title>
-                Explore
-            </Head>
-            <section className="">
-                <div className="md:hidden">
-                    <HeaderSection title="Trending" />
-                </div>
+                {/* add twitterlogofavicon */}
+                
 
+            </Head>
+            <div className="md:hidden">
+                <HeaderSection title="Trending" />
+            </div>
+            <section className="overflow-y-scroll">
+
+                <div className="md:hidden overflow-y-scroll ">
+
+                    {/* map the trending array */}
+
+                    <Newscard
+                        key={trending[0].urlToImage}
+                        title={trending[0].title}
+                        // description={item.description}
+                        url={trending[0].url}
+                        name={trending[0].source.name}
+                        image={trending[0].urlToImage}
+                    />
+
+                    {
+                        console.log(
+                            Array.isArray(trending)
+                        )
+                    }
+
+                    {trending.slice(1, 4).map((item: any, index: number) => {
+                        return (
+                            <Normalnews name={item.source.name} title={item.title} image={item.urlToImage} url={item.url} />
+                        )
+                    })}
+
+                    {trending.slice(4, 10).map((item: any, index: number) => {
+                        return (
+                            <Normalnews name={item.source.name} title={item.title} image={item.urlToImage} url={item.url} />
+                        )
+                    })}
+
+                </div>
             </section>
             <LowerNav />
         </div>
@@ -38,3 +63,17 @@ const Explore = () => {
 }
 
 export default Explore
+
+export const getServerSideProps = async (context: any) => {
+
+    const res = await fetch('https://newsapi.org/v2/top-headlines?country=us&apiKey=e3553a68781d448b87d4ebd624b4b888')
+    const data = await res.json()
+    console.log(data.articles)
+    return {
+        props: {
+            trending: data.articles
+        }
+    }
+}
+
+
