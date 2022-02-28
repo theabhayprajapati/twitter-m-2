@@ -3,6 +3,7 @@ import React from 'react'
 import Explore from '../components/Explore'
 import Feed from '../components/Feed'
 import Navigation from '../components/Navigation'
+import Nonsigninmembers from '../components/nonsigninmembers'
 
 const Home = () => {
   return (
@@ -28,6 +29,7 @@ const Home = () => {
         </div>
 
       </main>
+      <Nonsigninmembers />
 
 
     </div>
