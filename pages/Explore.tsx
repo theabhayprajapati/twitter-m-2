@@ -19,43 +19,42 @@ const Explore = ({ trending }: any) => {
 
 
             </Head>
-            <div className="md:hidden">
+            <div className="bg-black px-3 fixed shadow-lg z-50 top-0 w-full">
                 <HeaderSection title="Trending" />
             </div>
             <section className="overflow-y-scroll">
 
-                <div className="md:hidden overflow-y-scroll ">
 
-                    {/* map the trending array */}
 
-                    <Newscard
-                        key={trending[0].urlToImage}
-                        title={trending[0].title}
-                        // description={item.description}
-                        url={trending[0].url}
-                        name={trending[0].source.name}
-                        image={trending[0].urlToImage}
-                    />
+                {/* map the trending array */}
 
-                    {
-                        console.log(
-                            Array.isArray(trending)
-                        )
-                    }
+                <Newscard
+                    key={trending[0].urlToImage}
+                    title={trending[0].title}
+                    // description={item.description}
+                    url={trending[0].url}
+                    name={trending[0].source.name}
+                    image={trending[0].urlToImage}
+                />
 
-                    {trending.slice(1, 4).map((item: any, index: number) => {
-                        return (
-                            <Normalnews key={item.urlToImage} name={item.source.name} title={item.title} image={item.urlToImage} url={item.url} />
-                        )
-                    })}
+                {
+                    console.log(
+                        Array.isArray(trending)
+                    )
+                }
 
-                    {trending.slice(4, 10).map((item: any, index: number) => {
-                        return (
-                            <Normalnews key={item.urlToImage} name={item.source.name} title={item.title} image={item.urlToImage} url={item.url} />
-                        )
-                    })}
+                {trending.slice(1, 4).map((item: any, index: number) => {
+                    return (
+                        <Normalnews key={item.urlToImage} name={item.source.name} title={item.title} image={item.urlToImage} url={item.url} />
+                    )
+                })}
 
-                </div>
+                {trending.slice(4, 10).map((item: any, index: number) => {
+                    return (
+                        <Normalnews key={item.urlToImage} name={item.source.name} title={item.title} image={item.urlToImage} url={item.url} />
+                    )
+                })}
+
             </section>
             <LowerNav />
         </div>
