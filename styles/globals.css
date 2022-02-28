@@ -26,6 +26,10 @@
     .lowernav-btn {
         @apply hover:scale-90 active:scale-95 rounded-full h-9 w-9  flex justify-center items-center focus:text-blue-500 focus:scale-95 focus:shadow-lg 
     }
+    .nothing-text {
+        @apply flex justify-center items-center text-center min-h-screen text-4xl font-bold flex-col 
+         
+    }
   }
 
 

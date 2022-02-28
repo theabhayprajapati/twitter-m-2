@@ -5,12 +5,12 @@ const Normalnews = ({ name, title, image, url }: any) => {
     const router = useRouter()
     return (
         <div onClick={() => router.push(url)} className=" cursor-pointer flex items-center overflow-y-scroll  text-white m-3">
-            <div className="w-[70%] flex flex-col ">
-                <div className="flex">
-                    <h1 className="text-xs font-thin text-gray-500">{name}{' '}</h1>
-                    <h1 className="text-xs font-thin text-gray-500"> &#8226; LIVE</h1>
+            <div className="w-[70%] flex flex-col space-y-2 ">
+                <div className="flex ">
+                    <h1 className="text-sm font-thin text-gray-500">{name} {' '}</h1>
+                    <h1 className="text-sm font-thin text-gray-500"> &#8226; LIVE</h1>
                 </div>
-                <h1 className="text-xs font-normal">{title && title}</h1>
+                <h1 className="text-base font-semibold">{title && title}</h1>
 
             </div>
             <div className="w-[30%]">

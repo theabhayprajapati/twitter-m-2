@@ -13,9 +13,9 @@ const Feed = () => {
                     </title>
                 </Head>
             </div>
-            <main className="">
+            <div className="bg-black px-3 fixed shadow-lg z-50 top-0 w-full">
                 <HeaderSection title="Home" />
-            </main>
+            </div>
             <LowerNav />
         </div>
     )

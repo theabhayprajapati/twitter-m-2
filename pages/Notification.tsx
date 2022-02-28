@@ -12,10 +12,17 @@ const NotificationSection = () => {
 
         </title>
       </Head>
-      <main>
-        <HeaderSection title="Notification's" />
+      <div className="bg-black px-3 fixed shadow-lg z-50 top-0 w-full">
+        <HeaderSection title="Trending" />
+      </div>
 
-      </main>
+      <h1 className='nothing-text'>
+        Nothing to see here
+        <p>
+          - yet.
+        </p>
+      </h1>
+
       <LowerNav />
     </div>
   )
