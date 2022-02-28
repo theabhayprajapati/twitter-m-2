@@ -1,8 +1,10 @@
 import { BellIcon, ChatAlt2Icon, HomeIcon, SearchIcon, SparklesIcon, UserIcon } from '@heroicons/react/outline'
+import { useRouter } from 'next/router'
 // import { useSession } from 'next-auth/react'
 import React from 'react'
 
 const LowerNav = () => {
+    const router = useRouter()
     // const { data: session } = useSession<any>()
     const session = {
         user: {
@@ -15,18 +17,18 @@ const LowerNav = () => {
     const image = session?.user?.image || ''
     return (
         <div className=" bottom-0 text-white fixed h-14 bg-black  border-t-[.5px] border-gray-800 md:hidden shadow-lg flex justify-evenly w-full items-center">
-            <button className='hover:scale-95 active:scale-95 rounded-full h-9 w-9   flex justify-center items-center focus:text-blue-500 focus:scale-95 focus:shadow-lg'>
+            <button onClick={() => router.push("/")} className='lowernav-btn'>
 
                 <HomeIcon className="h-7 w-7  " />
 
             </button>
-            <button className='hover:scale-95 active:scale-95 rounded-full h-9 w-9   flex justify-center items-center focus:scale-95 focus:text-blue-500'>
+            <button onClick={() => router.push("/Explore")} className='lowernav-btn'>
                 <SearchIcon className="h-7" />
             </button>
-            <button className='hover:scale-95 active:scale-95 rounded-full h-9 w-9   flex justify-center items-center focus:scale-95 focus:text-blue-500'>
+            <button onClick={() => router.push("/Notification")} className='lowernav-btn'>
                 <BellIcon className="h-7" />
             </button>
-            <button className='hover:scale-95 active:scale-95 rounded-full h-9 w-9  flex justify-center items-center  focus:scale-95 focus:text-blue-500 border'>
+            <button onClick={() => router.push("/Account")} className='lowernav-btn'>
 
                 <img src={image} alt="notfound" className='border h-7 rounded-full w-7' />
 

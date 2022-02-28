@@ -4,6 +4,7 @@ import { BellIcon, BookmarkIcon, CollectionIcon, DotsCircleHorizontalIcon, DotsH
 import { useRouter } from 'next/router'
 import Image from 'next/image'
 const Navigation = () => {
+
     // use session
     // const { data: session }:any = useSession<any>()
     const router = useRouter()
@@ -32,47 +33,49 @@ const Navigation = () => {
                     {/* make home, explore, navigate, message , bookmarl button*/}
                     <main className='text-white  flex flex-col justify-between'>
                         <div className="mt-2 text-xl font-bold">
-                            <button className='nav-button'>
+                            <button onClick={() => router.push("/Explore")} className='nav-button'>
                                 <HomeIcon className="nav-icons " />
                                 <h1>
                                     Home
                                 </h1>
                             </button>
-                            <button className='nav-button'>
+                            <button onClick={() => router.push("/Explore")} className='nav-button'>
                                 <HashtagIcon className="nav-icons" />
                                 <h1>
                                     Explore
                                 </h1>
-                            </button> <button className='nav-button'>
+                            </button>
+                            <button onClick={() => router.push("/Explore")} className='nav-button'>
                                 <BellIcon className="nav-icons " />
                                 <h1>
                                     Notifications
                                 </h1>
-                            </button> <button className='nav-button'>
+                            </button>
+                            <button onClick={() => router.push("/Explore")} className='nav-button'>
                                 <InboxIcon className="nav-icons " />
                                 <h1>
                                     Messages
                                 </h1>
                             </button>
-                            <button className='nav-button'>
+                            <button onClick={() => router.push("/Explore")} className='nav-button'>
                                 <BookmarkIcon className="nav-icons " />
                                 <h1>
                                     Bookmarks
                                 </h1>
                             </button>
-                            <button className='nav-button'>
+                            <button onClick={() => router.push("/Explore")} className='nav-button'>
                                 <CollectionIcon className="nav-icons" />
                                 <h1>
                                     Lists
                                 </h1>
                             </button>
-                            <button className="nav-button">
+                            <button onClick={() => router.push("/Explore")} className="nav-button">
                                 <UserIcon className="nav-icons" />
                                 <h1>
                                     Profile
                                 </h1>
                             </button>
-                            <button className="nav-button">
+                            <button onClick={() => router.push("/Explore")} className="nav-button">
                                 <DotsCircleHorizontalIcon className="nav-icons" />
                                 <h1>
                                     More
