@@ -25,7 +25,6 @@ const TweetsSection = () => {
         // delete the tweet
         // check if username matches to username in data() from firebase
 
-
         if (username === screen_name) {
             alert("Access granted")
             let docRef = doc(db, 'tweets', id)
