@@ -20,7 +20,7 @@ const AccountSection = () => {
         <HeaderSection title="Account" />
       </div>
       <div className='text-white text-xs w-full'>
-          
+
         {
           session ? (
             <button className='nav-button w-full'>
@@ -40,7 +40,7 @@ const AccountSection = () => {
               </div>
             </button>
           ) : (
-            <button onClick={() => console.log("Add singin button")} className='nav-button w-full'>
+            <button onClick={() => signIn()} className='nav-button w-full'>
               <div className='flex flex-col text-left'>
                 <h1 className='text-white'>
                   Sign in
