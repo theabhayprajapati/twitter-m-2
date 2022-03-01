@@ -10,11 +10,12 @@ export default NextAuth({
         })
     ],
     callbacks: {
-        async session({ session, token, user }) {
+        async session({ session, token }) {
             //   remove everthing after @ from email
             session.user.username = session.user.email.split("@")[0]
             session.user.uid = token.sub
             return session
         },
     },
+    secret: process.env.SECRET_KEY
 })
