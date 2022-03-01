@@ -3,13 +3,13 @@ import { BellIcon, BookmarkIcon, CollectionIcon, DotsCircleHorizontalIcon, DotsH
 // import { signIn, signOut, useSession } from 'next-auth/react'
 import { useRouter } from 'next/router'
 import Image from 'next/image'
-import { useSession } from 'next-auth/react'
+import { signIn, useSession } from 'next-auth/react'
 const Navigation = () => {
 
     // use session
-    const { data: session }:any = useSession()
+    const { data: session }: any = useSession()
     const router = useRouter()
-    
+
     console.log(session)
     const username = session?.user?.email.split("@")[0]
 
@@ -105,7 +105,7 @@ const Navigation = () => {
                                 </div>
                             </button>
                         ) : (
-                            <button onClick={() => console.log("Add singin button")} className='nav-button w-full'>
+                            <button onClick={() => signIn()} className='nav-button w-full'>
                                 <div className='flex flex-col text-left'>
                                     <h1 className='text-white'>
                                         Sign in
