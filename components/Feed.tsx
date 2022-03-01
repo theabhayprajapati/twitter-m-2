@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import HeaderSection from './Header'
 import Inputfield from './Inputfield'
 import LowerNav from './lowernavigation'
+import TweetsSection from './TweetsSection'
 
 const Feed = () => {
     const { data: session } = useSession()
@@ -20,9 +21,11 @@ const Feed = () => {
                 <HeaderSection title="Home" />
             </div>
             <main className='text-white'>
-                {session && (<><Inputfield /></>)}
+                {session && (<Inputfield />)}
+                <div className='mx-5 mt-2 '>
+                    <TweetsSection />
+                </div>
             </main>
-
             <LowerNav />
 
         </div>
