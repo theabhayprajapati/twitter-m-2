@@ -9,6 +9,7 @@ export default NextAuth({
             clientSecret: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_SECRET
         })
     ],
+
     callbacks: {
         async session({ session, token }) {
             //   remove everthing after @ from email
@@ -17,5 +18,6 @@ export default NextAuth({
             return session
         },
     },
-    secret: process.env.SECRET_KEY
+    secret: process.env.SECRET,
+
 })

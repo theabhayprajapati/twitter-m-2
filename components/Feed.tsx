@@ -8,11 +8,9 @@ import Nonsigninmembers from './nonsigninmembers'
 const Feed = () => {
 
     const { data: session } = useSession()
-    useEffect(() => {
-        console.log(session, "SESSION STATUS:--")
-    }, [session])
+    console.log(session)
 
-
+    console.log(new Date().getSeconds(), "TIME")
 
     return (
         <div className="relative text-white">
@@ -44,6 +42,9 @@ const Feed = () => {
                             }
                         </h1>
                     </div>)
+                }{
+
+                    // generate random 35 length alphanumeric string
                 }
             </main>
 

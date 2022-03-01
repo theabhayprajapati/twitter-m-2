@@ -3,19 +3,13 @@ import { BellIcon, BookmarkIcon, CollectionIcon, DotsCircleHorizontalIcon, DotsH
 // import { signIn, signOut, useSession } from 'next-auth/react'
 import { useRouter } from 'next/router'
 import Image from 'next/image'
+import { useSession } from 'next-auth/react'
 const Navigation = () => {
 
     // use session
-    // const { data: session }:any = useSession<any>()
+    const { data: session }:any = useSession()
     const router = useRouter()
-    const session = {
-        user: {
-            id: '1',
-            name: 'John Doe',
-            image: 'https://avatars2.githubusercontent.com/u/175727?s=460&u=e8d9c8f8b9f8f9c8f9c8f9c8f9c8f9c8f9c8f9c&v=4',
-            email: 'theabhayprajapati@gmail.com'
-        }
-    }
+    
     console.log(session)
     const username = session?.user?.email.split("@")[0]
 
@@ -103,7 +97,7 @@ const Navigation = () => {
                                             {session?.user?.name || 'username'}
                                         </h1>
                                         <p className='text-[#6E767D]'>
-                                            {username || '@email'}
+                                            @{username || '@email'}
                                         </p>
 
                                     </div>
