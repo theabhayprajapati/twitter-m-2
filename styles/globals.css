@@ -18,7 +18,7 @@
         @apply flex justify-start space-x-2 items-center rounded-full h-12 px-5 py-2  hover:opacity-80 hover:bg-gray-900 focus:shadow-lg shadow-blue-500
     }
     .input-btn {
-        @apply h-6 text-blue-500
+        @apply h-6 text-gray-500
     }
     .input-icons {
         @apply flex justify-center items-center rounded-full h-8 w-8 hover:opacity-80 hover:bg-gray-900 focus:shadow-lg shadow-blue-500

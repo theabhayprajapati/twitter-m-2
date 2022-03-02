@@ -3,6 +3,7 @@ import { deleteDoc, doc } from 'firebase/firestore'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/router'
 import React from 'react'
+import Moment from 'react-moment'
 import { db } from '../firebase'
 
 const TweetCard = ({ alltweets }: any) => {
@@ -11,13 +12,14 @@ const TweetCard = ({ alltweets }: any) => {
     const username = session && (session?.user?.email).split("@")[0]
 
     const DotsButtonClicked = async (id: any, screen_name: any) => {
-        
+
         if (username === screen_name) {
             alert("Access granted")
             let docRef = doc(db, 'tweets', id)
             let docRef2 = doc(db, 'users', screen_name, 'tweets', id)
             await deleteDoc(docRef2)
             await deleteDoc(docRef)
+
         } else {
             alert('Access denied')
 
@@ -28,7 +30,7 @@ const TweetCard = ({ alltweets }: any) => {
         <div key={alltweets.id} className="text-white ">
             <div className="flex space-x-2 ">
 
-        
+
 
                 <div className="w-10% self-start " onClick={() => router.push(
                     `/${alltweets.data().screen_name}`
@@ -42,7 +44,7 @@ const TweetCard = ({ alltweets }: any) => {
 
                 <div className="self-center flex flex-col w-full ">
                     <div className="flex justify-between w-full ">
-                        <h1 className="text-sm font-bold">
+                        <h1 className="text-xs font-bold">
                             {alltweets.data().name} <span className='text-xs text-gray-500 opacity-70 font-medium'>
                                 @{alltweets.data().screen_name} {''}
                             </span>
@@ -50,9 +52,9 @@ const TweetCard = ({ alltweets }: any) => {
                                 <span className="text-xs text-gray-500 opacity-80 font-medium">
                                     · {''}
                                 </span>
-                                <span className="text-xs text-gray-500 opacity-80 font-medium">
-                                    2h
-                                </span>
+                                <Moment fromNow className="text-xs text-gray-500 opacity-80 font-medium">
+                                    {alltweets.data().created_At}
+                                </Moment>
                             </span>
                         </h1>
                         <button className="input-icons">

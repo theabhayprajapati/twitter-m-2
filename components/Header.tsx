@@ -1,14 +1,15 @@
 import React from 'react'
 import { ArrowLeftIcon, SparklesIcon, XIcon } from '@heroicons/react/outline'
+import { useRouter } from 'next/router'
 
 const HeaderSection = ({ title, hidden, tweets }: any) => {
-
+  const router = useRouter()
   return (
 
     <header className={` sticky z-50 opac ity-95 top-0 h-14 text-white font-bold flex justify-start items-center`}>
       <div className="flex w-full justify-start space-x-4">
         <button>
-          <ArrowLeftIcon className={`input-btn h-[20px] ${!hidden ? 'hidden' : null}`} />
+          <ArrowLeftIcon onClick={() => router.back()} className={`input-btn h-[20px] ${!hidden ? 'hidden' : null}`} />
         </button>
         <button className={`font-bold flex flex-col justify-start items-start ${hidden ? null : 'flex-1 self-start'}`}>
           <h1>

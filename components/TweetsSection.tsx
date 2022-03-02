@@ -3,6 +3,7 @@ import { collection, deleteDoc, doc, onSnapshot, orderBy, query } from 'firebase
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
+import Moment from 'react-moment'
 import { db } from '../firebase'
 
 const TweetsSection = () => {
@@ -16,7 +17,6 @@ const TweetsSection = () => {
         // let querydaata = query(Alltweets, orderBy('desc'))
         let q = query(collection(db, "tweets"), orderBy('createdAt', "desc"))
         onSnapshot(q, (snapshot) => setAlltweets(snapshot.docs))
-
     }, [])
     console.log(Alltweets)
 
@@ -66,9 +66,9 @@ const TweetsSection = () => {
                                                     <span className="text-xs text-gray-500 opacity-80 font-medium">
                                                         · {''}
                                                     </span>
-                                                    <span className="text-xs text-gray-500 opacity-80 font-medium">
-                                                        2h
-                                                    </span>
+                                                    <Moment className="text-xs text-gray-500 opacity-80 font-medium" fromNow>
+                                                        {alltweets?.data()?.createdAt?.toDate()}
+                                                    </Moment>
                                                 </span>
                                             </h1>
                                             <button className="input-icons">
