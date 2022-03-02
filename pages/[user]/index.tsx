@@ -5,6 +5,7 @@ import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
 import Explore from '../../components/Explore'
 import HeaderSection from '../../components/Header'
+import LowerNav from '../../components/lowernavigation'
 import Navigation from '../../components/Navigation'
 import Profilepage from '../../components/Profilepage'
 // import Explore from '../../components/Exploresection'
@@ -73,6 +74,7 @@ const UserIndex = () => {
                     <Explore />
                 </div>
             </main>
+            <LowerNav />
         </div>
     )
 }

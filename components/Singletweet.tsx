@@ -9,6 +9,7 @@ import TweetCard from './TweetCard'
 import Moment from 'react-moment'
 import Image from 'next/image'
 import ReactTextareaAutosize from 'react-textarea-autosize'
+import LowerNav from './lowernavigation'
 
 const Singletweet = ({ tweet, tweetiD }: any) => {
     console.log(tweet);
@@ -139,6 +140,7 @@ const Singletweet = ({ tweet, tweetiD }: any) => {
                     </div> : <>loading...</>
                 }
             </main>
+            <LowerNav />
         </div>
     )
 }

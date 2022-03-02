@@ -32,17 +32,17 @@ const Tweet = () => {
   return (
     <div className=''>
 
-      <main className='max-w-6xl mx-auto h-screen w-screen  grid grid-cols-1 md:grid-cols-4 border-2 '>
+      <main className='max-w-6xl mx-auto h-screen w-screen  grid grid-cols-1 md:grid-cols-4'>
 
-        <div className="hidden md:inline-grid border-2">
+        <div className="hidden md:inline-grid ">
           <div>
             <Navigation />
           </div>
         </div>
-        <div className="border border-gray-900 col-span-2 w-full  overflow-y-auto">
+        <div className=" border-gray-900 col-span-2 w-full  overflow-y-auto">
           <Singletweet tweet={singleTweet} tweetiD={tweet} />
         </div>
-        <div className="border-2 hidden md:inline-grid">
+        <div className=" hidden md:inline-grid">
           <Explore />
         </div>
       </main>
