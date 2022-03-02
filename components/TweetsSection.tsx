@@ -35,6 +35,10 @@ const TweetsSection = () => {
         }
 
     }
+    //Add this
+    if (!router.isFallback && username?.title) {
+        return <div>Loading...</div>;
+    }
     return (
         <div className='scrollbar-hide'>
             {
