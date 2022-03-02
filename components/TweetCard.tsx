@@ -1,0 +1,101 @@
+import { ChatAlt2Icon, DotsHorizontalIcon, HeartIcon, ReplyIcon, UploadIcon } from '@heroicons/react/outline'
+import { deleteDoc, doc } from 'firebase/firestore'
+import { useSession } from 'next-auth/react'
+import { useRouter } from 'next/router'
+import React from 'react'
+import Moment from 'react-moment'
+import { db } from '../firebase'
+
+const TweetCard = ({ alltweets }: any) => {
+    const router = useRouter()
+    const { data: session }: any = useSession()
+    const username = session && (session?.user?.email).split("@")[0]
+
+    const DotsButtonClicked = async (id: any, screen_name: any) => {
+
+        if (username === screen_name) {
+            alert("Access granted")
+            let docRef = doc(db, 'tweets', id)
+            let docRef2 = doc(db, 'users', screen_name, 'tweets', id)
+            await deleteDoc(docRef2)
+            await deleteDoc(docRef)
+
+        } else {
+            alert('Access denied')
+
+        }
+
+    }
+    return (
+        <div key={alltweets.id} className="text-white ">
+            <div className="flex space-x-2 ">
+
+
+
+                <div className="w-10% self-start " onClick={() => router.push(
+                    `/${alltweets.data().screen_name}`
+                )}>
+                    <div className="rounded-full hover:opacity-90 cursor-pointer h-12 w-12 items-center flex justify-center " tabIndex={0}>
+                        <img src={alltweets?.data().profile_image_url} alt="" className="h-full  rounded-full w-full  " />
+                    </div>
+                </div>
+
+
+
+                <div className="self-center flex flex-col w-full ">
+                    <div className="flex justify-between w-full ">
+                        <h1 className="text-xs font-bold">
+                            {alltweets.data().name} <span className='text-xs text-gray-500 opacity-70 font-medium'>
+                                @{alltweets.data().screen_name} {''}
+                            </span>
+                            <span>
+                                <span className="text-xs text-gray-500 opacity-80 font-medium">
+                                    · {''}
+                                </span>
+                                <Moment fromNow className="text-xs text-gray-500 opacity-80 font-medium">
+                                    {alltweets.data().created_At}
+                                </Moment>
+                            </span>
+                        </h1>
+                        <button className="input-icons">
+                            <DotsHorizontalIcon onClick={() => DotsButtonClicked(alltweets.id, alltweets.data().screen_name)} className='input-btn h-[20px] w text-blue-500 cursor-pointer' />
+
+                        </button>
+                    </div>
+                    <div >
+                        <p onClick={() => router.push(
+                            `/${alltweets.data().screen_name}/tweet/${(alltweets.id)}`)} className='text-sm' >
+                            {console.log(alltweets.id)}
+                            {alltweets.data().tweet}
+                        </p>
+                        <img src="" alt="" />
+                        <div className='flex justify-evenly'>
+
+                            <button className="input-icons">
+                                <ChatAlt2Icon className="input-btn h-[20px]" />
+                            </button><button className="input-icons">
+                                <ReplyIcon className='input-btn h-[20px]" />' />
+                            </button>
+                            <button className="input-icons">
+                                <HeartIcon className='input-btn h-[20px] hover:bg-black"  />' />
+                            </button>
+                            <button className="input-icons">
+                                <UploadIcon className='input-btn h-[20px]"  />' />
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+            <hr className="my-3 border-[#6E767D]" />
+
+        </div>
+    )
+}
+
+export default TweetCard

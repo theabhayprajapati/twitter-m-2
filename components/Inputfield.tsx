@@ -47,11 +47,13 @@ const Inputfield = () => {
             setImagePreview(null)
         }
     }, [imageFile])
+    const [allusers, setallusers] = useState()
 
     const submittweet = async () => {
         let tweet = userinputtweet
         let inputimage = imagePreview
         settweetbtnstate(true)
+        
         await setDoc(doc(db, "users", username), {
             name: session.user.name,
             createdAt: serverTimestamp(),
@@ -83,7 +85,7 @@ const Inputfield = () => {
 
 
     return (
-        <div className='text-white mx-5 flex md:space-x-2 space-x-4 border-b-[.5px] border-[#6E767D] pb-3'>
+        <div className='text-white mx-3 flex md:space-x-2 space-x-4 border-b-[.5px] border-[#6E767D] pb-3'>
             <div className='w-[10%]  self-start'>
                 <div className='rounded-full hover:opacity-90 cursor-pointer h-12 w-12 items-center flex justify-center ' tabIndex={0}>
                     <Image height={"100%"} width={"100%"} src={session?.user?.image} tabIndex={0} alt="notfound" className='nav-icons rounded-full h-10' />

@@ -3,13 +3,13 @@ import { BellIcon, BookmarkIcon, CollectionIcon, DotsCircleHorizontalIcon, DotsH
 // import { signIn, signOut, useSession } from 'next-auth/react'
 import { useRouter } from 'next/router'
 import Image from 'next/image'
-import { useSession } from 'next-auth/react'
+import { signIn, useSession } from 'next-auth/react'
 const Navigation = () => {
 
     // use session
-    const { data: session }:any = useSession()
+    const { data: session }: any = useSession()
     const router = useRouter()
-    
+
     console.log(session)
     const username = session?.user?.email.split("@")[0]
 
@@ -25,9 +25,9 @@ const Navigation = () => {
                         </button>
                     </header>
                     {/* make home, explore, navigate, message , bookmarl button*/}
-                    <main className='text-white  flex flex-col justify-between'>
+                    <main className='text-white  flex flex-col justify-between '>
                         <div className="mt-2 text-xl font-bold">
-                            <button onClick={() => router.push("/Explore")} className='nav-button'>
+                            <button onClick={() => router.push("/")} className='nav-button'>
                                 <HomeIcon className="nav-icons " />
                                 <h1>
                                     Home
@@ -39,7 +39,7 @@ const Navigation = () => {
                                     Explore
                                 </h1>
                             </button>
-                            <button onClick={() => router.push("/Explore")} className='nav-button'>
+                            <button onClick={() => router.push("/")} className='nav-button'>
                                 <BellIcon className="nav-icons " />
                                 <h1>
                                     Notifications
@@ -51,25 +51,25 @@ const Navigation = () => {
                                     Messages
                                 </h1>
                             </button>
-                            <button onClick={() => router.push("/Explore")} className='nav-button'>
+                            <button onClick={() => router.push("/")} className='nav-button'>
                                 <BookmarkIcon className="nav-icons " />
                                 <h1>
                                     Bookmarks
                                 </h1>
                             </button>
-                            <button onClick={() => router.push("/Explore")} className='nav-button'>
+                            <button onClick={() => router.push("/")} className='nav-button'>
                                 <CollectionIcon className="nav-icons" />
                                 <h1>
                                     Lists
                                 </h1>
                             </button>
-                            <button onClick={() => router.push("/Explore")} className="nav-button">
+                            <button onClick={() => router.push("/Account")} className="nav-button">
                                 <UserIcon className="nav-icons" />
                                 <h1>
                                     Profile
                                 </h1>
                             </button>
-                            <button onClick={() => router.push("/Explore")} className="nav-button">
+                            <button onClick={() => router.push("/Account")} className="nav-button">
                                 <DotsCircleHorizontalIcon className="nav-icons" />
                                 <h1>
                                     More
@@ -105,7 +105,7 @@ const Navigation = () => {
                                 </div>
                             </button>
                         ) : (
-                            <button onClick={() => console.log("Add singin button")} className='nav-button w-full'>
+                            <button onClick={() => signIn()} className='nav-button w-full'>
                                 <div className='flex flex-col text-left'>
                                     <h1 className='text-white'>
                                         Sign in
