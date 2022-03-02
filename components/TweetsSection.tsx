@@ -36,7 +36,7 @@ const TweetsSection = () => {
 
     }
     return (
-        <div>
+        <div className='scrollbar-hide'>
             {
                 Alltweets ? (
                     Alltweets.map((alltweets: any) => {

@@ -9,7 +9,7 @@ import TweetsSection from './TweetsSection'
 const Feed = () => {
     const { data: session } = useSession()
     return (
-        <div className="relative text-white">
+        <div className="relative text-white ">
             <div>
                 <Head>
                     <title>
@@ -20,7 +20,7 @@ const Feed = () => {
             <div className="bg-black px-3 sticky z-50 top-0 w-full">
                 <HeaderSection title="Home" />
             </div>
-            <main className='text-white'>
+            <main className='text-white '>
                 {session && (<Inputfield />)}
                 <div className='mx-5 mt-2 '>
                     <TweetsSection />
