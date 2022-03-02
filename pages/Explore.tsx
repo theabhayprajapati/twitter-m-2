@@ -66,7 +66,7 @@ const ExplorePage = () => {
                             )
                         })}
 
-                        {trending.length > 2 && trending.slice(4, 10).map((item: any, index: number) => {
+                        {trending.length > 2 && trending.slice(4, 18).map((item: any, index: number) => {
                             return (
                                 <Normalnews key={item.urlToImage} name={item.source.name} title={item.title} image={item.urlToImage} url={item.url} />
                             )
