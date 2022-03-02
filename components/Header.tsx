@@ -1,7 +1,7 @@
 import React from 'react'
 import { ArrowLeftIcon, SparklesIcon, XIcon } from '@heroicons/react/outline'
 import { useRouter } from 'next/router'
-import { useSession } from 'next-auth/react';
+import { signIn, signOut, useSession } from 'next-auth/react';
 const HeaderSection = ({ title, hidden, tweets }: any) => {
   const router = useRouter()
   const { data: session } = useSession()
@@ -23,12 +23,16 @@ const HeaderSection = ({ title, hidden, tweets }: any) => {
       </div>
       {
         !session &&
-        (<div className='flex justify-items-stretch justify-around  my-5'>
-          <button className='border w-full rounded-full text-blue-500 border-gray-700 bg-transparent hover:bg-gray-900'>
-            Login
+        (<div className='flex justify-items-stretch justify-around font-bold my-5'>
+          <button onClick={() => signIn()} className='border w-full rounded-full text-blue-500 border-gray-700 bg-transparent hover:bg-gray-900'>
+            <h1 className='font-semibold'>
+              Login
+            </h1>
           </button>
-          <button className='border w-full rounded-full text-white  border-gray-700 bg-blue-500 hover:opacity-90'>
-            Sign Up
+          <button onClick={() => signIn()} className='border w-full rounded-full text-white  border-gray-700 bg-blue-500 hover:opacity-90'>
+            <h1 className='font-semibold'>
+              Sign Up
+            </h1>
           </button>
         </div>)
       }

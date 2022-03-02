@@ -25,9 +25,9 @@ const Navigation = () => {
                         </button>
                     </header>
                     {/* make home, explore, navigate, message , bookmarl button*/}
-                    <main className='text-white  flex flex-col justify-between'>
+                    <main className='text-white  flex flex-col justify-between '>
                         <div className="mt-2 text-xl font-bold">
-                            <button onClick={() => router.push("/Explore")} className='nav-button'>
+                            <button onClick={() => router.push("/")} className='nav-button'>
                                 <HomeIcon className="nav-icons " />
                                 <h1>
                                     Home
@@ -39,7 +39,7 @@ const Navigation = () => {
                                     Explore
                                 </h1>
                             </button>
-                            <button onClick={() => router.push("/Explore")} className='nav-button'>
+                            <button onClick={() => router.push("/")} className='nav-button'>
                                 <BellIcon className="nav-icons " />
                                 <h1>
                                     Notifications
@@ -51,25 +51,25 @@ const Navigation = () => {
                                     Messages
                                 </h1>
                             </button>
-                            <button onClick={() => router.push("/Explore")} className='nav-button'>
+                            <button onClick={() => router.push("/")} className='nav-button'>
                                 <BookmarkIcon className="nav-icons " />
                                 <h1>
                                     Bookmarks
                                 </h1>
                             </button>
-                            <button onClick={() => router.push("/Explore")} className='nav-button'>
+                            <button onClick={() => router.push("/")} className='nav-button'>
                                 <CollectionIcon className="nav-icons" />
                                 <h1>
                                     Lists
                                 </h1>
                             </button>
-                            <button onClick={() => router.push("/Explore")} className="nav-button">
+                            <button onClick={() => router.push("/Account")} className="nav-button">
                                 <UserIcon className="nav-icons" />
                                 <h1>
                                     Profile
                                 </h1>
                             </button>
-                            <button onClick={() => router.push("/Explore")} className="nav-button">
+                            <button onClick={() => router.push("/Account")} className="nav-button">
                                 <DotsCircleHorizontalIcon className="nav-icons" />
                                 <h1>
                                     More

@@ -24,7 +24,7 @@
         @apply flex justify-center items-center rounded-full h-8 w-8 hover:opacity-80 hover:bg-gray-900 focus:shadow-lg shadow-blue-500
     }
     .lowernav-btn {
-        @apply hover:scale-90 active:scale-95 rounded-full h-9 w-9  flex justify-center items-center focus:text-blue-500 focus:scale-95 focus:shadow-lg 
+        @apply hover:scale-90 active:scale-95 rounded-full h-9 w-9  flex justify-center items-center focus:text-blue-500 focus:scale-95 focus:shadow-lg cursor-pointer 
     }
     .nothing-text {
         @apply flex justify-center items-center text-center min-h-screen text-4xl font-bold flex-col 
