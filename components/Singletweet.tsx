@@ -29,8 +29,6 @@ const Singletweet = ({ tweet, tweetiD }: any) => {
             alert('Access denied')
 
         }
-
-
     }
     const [comment, setcomment] = useState('')
 
@@ -45,6 +43,7 @@ const Singletweet = ({ tweet, tweetiD }: any) => {
         })
     }
     console.log(tweetiD)
+    console.log(session, 'USERIMAGE')
 
     return (
         <div className="text-white">
@@ -60,7 +59,7 @@ const Singletweet = ({ tweet, tweetiD }: any) => {
                                 `/${tweet.screen_name}`
                             )}>
                                 <div className="rounded-full hover:opacity-90 cursor-pointer h-12 w-12 items-center flex justify-center " tabIndex={0}>
-                                    <img src={tweet.profile_image_url} alt="" className="h-full  rounded-full w-full  " />
+                                    <img src={tweet?.profile_image_url || `https://avatars.githubusercontent.com/u/8957173?v=4`} alt="" className="h-full  rounded-full w-full  " />
                                 </div>
                             </div>
 
@@ -119,21 +118,24 @@ const Singletweet = ({ tweet, tweetiD }: any) => {
                             </button>
                         </div>
                         <hr className="my-2 border-[#6E767D]" />
-                        <div className='flex space-x-4 items-center'>
-                            <div className='w-[10%]  self-start'>
-                                <div className='rounded-full hover:opacity-90 cursor-pointer h-12 w-12 items-center flex justify-center ' tabIndex={0}>
-                                    <Image height={"100%"} width={"100%"} src={session?.user?.image} tabIndex={0} alt="notfound" className='nav-icons rounded-full h-10' />
-                                </div>
+                        {session &&
+                            <div className='flex space-x-4 items-center'>
+                                <div className='w-[10%]  self-start'>
+                                    <div className='rounded-full hover:opacity-90 cursor-pointer h-12 w-12 items-center flex justify-center ' tabIndex={0}>
+                                        <Image height={"100%"} width={"100%"} src={session?.user?.image} tabIndex={0} alt="notfound" className='nav-icons rounded-full h-10' />
+                                    </div>
 
+                                </div>
+                                <div className='w-[75%]'>
+                                    <ReactTextareaAutosize value={comment} onChange={(e) => setcomment(e.target.value)} className='w-full bg-transparent outline-none' placeholder="Tweet your reply" />
+                                </div>
+                                <button onClick={() => makereply(tweet.screen_name, comment)} className="w-[15%]  bg-blue-500 px-2 py-1 rounded-full disabled:bg-blue-300" disabled >
+                                    Reply
+                                </button>
+                                <hr className="my-2 border-[#6E767D]" />
                             </div>
-                            <div className='w-[75%]'>
-                                <ReactTextareaAutosize value={comment} onChange={(e) => setcomment(e.target.value)} className='w-full bg-transparent outline-none' placeholder="Tweet your reply" />
-                            </div>
-                            <button onClick={() => makereply(tweet.screen_name, comment)} className="w-[15%]  bg-blue-500 px-2 py-1 rounded-full disabled:bg-blue-300" disabled >
-                                Reply
-                            </button>
-                        </div>
-                        <hr className="my-2 border-[#6E767D]" />
+                        }
+
                         <div className="mt-5 text-xl font-bold text-gray-300">
                             comment are disabled at the moment.
                         </div>

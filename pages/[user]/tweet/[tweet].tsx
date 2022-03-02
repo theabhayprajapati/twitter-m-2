@@ -22,12 +22,9 @@ const Tweet = () => {
       onSnapshot(doc(db, "tweets", tweet), (snapshot) => setsingleTweet(snapshot.data()))
     }
 
-    // fetch data the firebase doc tweets with tweets id
-    // onSnapshot(doc(db, "tweets", tweets), (snapshot) => setAlltweets(snapshot.docs))
-
     tweet && getTweets(tweet)
   }, [router.query])
-  console.log(singleTweet, "Tweets data")
+
 
   return (
     <div className=''>

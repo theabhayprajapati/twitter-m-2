@@ -36,7 +36,7 @@ const TweetCard = ({ alltweets }: any) => {
                     `/${alltweets.data().screen_name}`
                 )}>
                     <div className="rounded-full hover:opacity-90 cursor-pointer h-12 w-12 items-center flex justify-center " tabIndex={0}>
-                        <img src={alltweets.data().profile_image_url} alt="" className="h-full  rounded-full w-full  " />
+                        <img src={alltweets?.data().profile_image_url} alt="" className="h-full  rounded-full w-full  " />
                     </div>
                 </div>
 

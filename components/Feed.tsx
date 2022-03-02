@@ -17,7 +17,7 @@ const Feed = () => {
                     </title>
                 </Head>
             </div>
-            <div className="bg-black px-3 sticky shadow-lg z-50 top-0 w-full">
+            <div className="bg-black px-3 sticky z-50 top-0 w-full">
                 <HeaderSection title="Home" />
             </div>
             <main className='text-white'>
