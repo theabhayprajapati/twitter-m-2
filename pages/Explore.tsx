@@ -61,7 +61,7 @@ const ExplorePage = ({ trending }: any) => {
 
                         {trending.length > 2 && trending.slice(1, 4).map((item: any, index: number) => {
                             return (
-                                <div key={item.urlToImage} className=''>
+                                <div key={item.url} className=''>
                                     <Normalnews name={item.source.name} title={item.title} image={item.urlToImage} url={item.url} />
                                 </div>
                             )
@@ -69,7 +69,7 @@ const ExplorePage = ({ trending }: any) => {
 
                         {trending.length > 2 && trending.slice(4, 18).map((item: any, index: number) => {
                             return (
-                                <Normalnews key={item.urlToImage} name={item.source.name} title={item.title} image={item.urlToImage} url={item.url} />
+                                <Normalnews key={item.url} name={item.source.name} title={item.title} image={item.urlToImage} url={item.url} />
                             )
                         })}
 
