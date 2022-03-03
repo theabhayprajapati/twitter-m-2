@@ -18,7 +18,7 @@ const Home = () => {
       <main className='max-w-6xl mx-auto  h-screen w-screen  grid grid-cols-1 md:grid-cols-4 '>
         <div className="hidden md:inline-grid">
           <div>
-            {/* <Navigation /> */}
+            <Navigation />
           </div>
         </div>
         <div className="border border-gray-900 col-span-2 overflow-y-auto ">
