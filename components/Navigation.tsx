@@ -21,7 +21,7 @@ const Navigation = () => {
                 <div>
                     <header className='ml-2 h-10 space-x-2 flex justify-start items-center'>
                         <button className='flex justify-center items-center rounded-full h-12 w-12 hover:opacity-80 hover:bg-gray-900'>
-                            <img src="/SVG/logowhite.svg" alt="" className="h-7 w-7 " />
+                            <img src="/SVG/Logowhite.svg" alt="" className="h-7 w-7 " />
                         </button>
                     </header>
                     {/* make home, explore, navigate, message , bookmarl button*/}
