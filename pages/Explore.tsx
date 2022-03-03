@@ -89,7 +89,7 @@ const ExplorePage = ({ trending }: any) => {
 export default ExplorePage
 export const getServerSideProps = async (context: any) => {
 
-    const res = await fetch(`https://newsapi.org/v2/top-headlines?country=us&apiKey=e3553a68781d448b87d4ebd624b4b888`)
+    const res = await fetch(`https://newsapi.org/v2/top-headlines?country=in&apiKey=e3553a68781d448b87d4ebd624b4b888`)
     const data = await res.json()
     const trending = data.articles
     console.log(trending.articles, '⭐')
