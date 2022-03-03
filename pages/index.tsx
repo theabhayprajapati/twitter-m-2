@@ -22,7 +22,7 @@ const Home = () => {
           </div>
         </div>
         <div className="border border-gray-900 col-span-2 overflow-y-auto ">
-          {/* <Feed /> */}
+          <Feed />
         </div>
         <div className="hidden md:inline-grid">
           {/* <Explore /> */}
