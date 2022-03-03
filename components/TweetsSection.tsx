@@ -31,7 +31,7 @@ const TweetsSection = () => {
             await deleteDoc(docRef)
         } else {
             alert('Access denied')
-
+    
         }
 
     }
