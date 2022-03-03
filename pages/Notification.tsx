@@ -8,9 +8,11 @@ const NotificationSection = () => {
     <div className="relative text-white">
       <Head>
         <title>
-          Explore
-
+          Notification
         </title>
+        {/* add favicon */}
+        <link rel="icon" href="/SVG/twitterblue.svg" />
+        
       </Head>
       <div className="bg-black px-3 fixed shadow-lg z-50 top-0 w-full">
         <HeaderSection title="Trending" />

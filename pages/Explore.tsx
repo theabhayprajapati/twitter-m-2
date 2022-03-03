@@ -27,6 +27,8 @@ const ExplorePage = ({ trending }: any) => {
                 <title>
                     Explore
                 </title>
+                {/* add a favicon*/}
+                <link rel="icon" href="/SVG/twitterblue.svg" />
             </Head>
             <main className="max-w-6xl mx-auto grid md:grid-cols-4 grid-cols-1">
                 <div className='hidden md:inline-grid'>
