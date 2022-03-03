@@ -27,7 +27,7 @@ const TweetsSection = () => {
 
 
     const DotsButtonClicked = async (id: any, screen_name: any) => {
-        console.log("delete button clicked", id)
+        // console.log("delete button clicked", id)
         // delete the tweet
         // check if username matches to username in data() from firebase
 

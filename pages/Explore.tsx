@@ -20,7 +20,7 @@ const ExplorePage = ({ trending }: any) => {
     //         })
 
     // }, [])
-    console.log(trending);
+    trending && console.log(trending);
     return (
         <div className="text-white ">
             <Head>
@@ -78,7 +78,7 @@ const ExplorePage = ({ trending }: any) => {
                 </div>
                 <div className='hidden md:inline-grid'>
                     <div className="fixed">
-                        <Explore />
+                        {/* <Explore /> */}
                     </div>
                 </div>
             </main>
@@ -92,7 +92,7 @@ export const getServerSideProps = async (context: any) => {
     const res = await fetch(`https://newsapi.org/v2/top-headlines?country=in&apiKey=e3553a68781d448b87d4ebd624b4b888`)
     const data = await res.json()
     const trending = data.articles
-    console.log(trending.articles, '⭐')
+    // console.log(trending.articles, '⭐')
 
     return {
         props: {
