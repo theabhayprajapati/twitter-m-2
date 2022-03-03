@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
 import Explore from '../components/Explore'
 import HeaderSection from '../components/Header'
+import LowerNav from '../components/lowernavigation'
 import Navigation from '../components/Navigation'
 import Newscard from '../components/newscard'
 import Normalnews from '../components/normalnews'
@@ -73,6 +74,7 @@ const ExplorePage = ({ trending }: any) => {
                         })}
 
                     </section>
+                    <LowerNav />
                 </div>
                 <div className='hidden md:inline-grid'>
                     <div className="fixed">
