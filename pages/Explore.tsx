@@ -7,18 +7,18 @@ import Navigation from '../components/Navigation'
 import Newscard from '../components/newscard'
 import Normalnews from '../components/normalnews'
 
-const ExplorePage = () => {
+const ExplorePage = ({ trending }: any) => {
     const router = useRouter()
-    const [trending, settrending] = useState<any>([])
-    //  fetch data from newsapi.org
-    useEffect(() => {
-        fetch(`https://newsapi.org/v2/top-headlines?country=us&apiKey=e3553a68781d448b87d4ebd624b4b888`)
-            .then(res => res.json())
-            .then(data => {
-                settrending(data.articles);
-            })
+    // const [trending, settrending] = useState<any>([])
+    // //  fetch data from newsapi.org
+    // useEffect(() => {
+    //     fetch(`https://newsapi.org/v2/top-headlines?country=us&apiKey=e3553a68781d448b87d4ebd624b4b888`)
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             settrending(data.articles);
+    //         })
 
-    }, [])
+    // }, [])
     console.log(trending);
     return (
         <div className="text-white ">
@@ -85,3 +85,16 @@ const ExplorePage = () => {
 }
 
 export default ExplorePage
+export const getServerSideProps = async (context: any) => {
+
+    const res = await fetch(`https://newsapi.org/v2/top-headlines?country=us&apiKey=e3553a68781d448b87d4ebd624b4b888`)
+    const data = await res.json()
+    const trending = data.articles
+    console.log(trending.articles, '⭐')
+
+    return {
+        props: {
+            trending
+        },
+    }
+}

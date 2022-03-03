@@ -13,7 +13,7 @@ const Navigation = () => {
     console.log(session)
     const username = session?.user?.email.split("@")[0]
 
-
+     
     return (
 
         <div className='m-2'>

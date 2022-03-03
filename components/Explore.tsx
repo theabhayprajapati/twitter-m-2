@@ -14,7 +14,7 @@ const Explore = () => {
       })
 
   }, [])
-  console.log(trending[0]?.title);
+  trending && console.log(trending[0]?.title);
 
   return (
     <div className='m-5 relative'>
@@ -30,10 +30,10 @@ const Explore = () => {
           <h1 className='font-bold text-sm mt-2'>
             What&apos;s Happening
           </h1>
-          <div onClick={() => router.push(trending[0].url)} className='mt-4 cursor-pointer'>
+          <div onClick={() => router.push(trending && trending[0].url)} className='mt-4 cursor-pointer'>
             <div className='flex   cursor-pointer items-center space-x-2'>
               <h1 className='font-medium text-[#6e767d] text-xs'>
-                {trending[0]?.source.name}
+                {trending && trending[0]?.source.name}
               </h1>
               <h1 className='font-medium text-[#6e767d] text-xs'>
                 LIVE
@@ -41,17 +41,17 @@ const Explore = () => {
             </div>
             <div className='flex items-center'>
               <h1 className='text-xs font-bold w-[60%]'>
-                {(trending[0]?.title)}
+                {trending && (trending[0]?.title)}
               </h1>
               <div className=''>
-                <img src={trending[0]?.urlToImage} className='items-start rounded-lg cursor-pointer h-full w-20 object-contain' alt="" />
+                <img src={trending && trending[0]?.urlToImage} className='items-start rounded-lg cursor-pointer h-full w-20 object-contain' alt="" />
               </div>
             </div>
           </div>
           <div className='mt-4'>
             <div className='flex items-center space-x-2'>
               <h1 className='font-medium text-[#6e767d] text-xs '>
-                {trending[2]?.source.name}
+                {trending && trending[2]?.source.name}
               </h1>
               <h1 className='font-medium text-[#6e767d] text-xs'>
                 LIVE
@@ -59,17 +59,17 @@ const Explore = () => {
             </div>
             <div className='flex items-center'>
               <h1 className='text-xs font-bold w-[60%]'>
-                {(trending[2]?.title)?.slice(0, 40)}
+                {trending && (trending[2]?.title)?.slice(0, 40)}
               </h1>
               <div className=''>
-                <img src={trending[2]?.urlToImage} className='items-start rounded-lg cursor-pointer h-full w-20 object-contain' alt="" />
+                <img src={trending && trending[2]?.urlToImage} className='items-start rounded-lg cursor-pointer h-full w-20 object-contain' alt="" />
               </div>
             </div>
           </div>
 
           <div className='my-2'>
             <h1 className="text-xs font-bold">
-              #{(trending[1]?.title)?.slice(0, 30)}
+              #{trending && (trending[1]?.title)?.slice(0, 30)}
             </h1>
           </div>
         </div>
@@ -79,3 +79,15 @@ const Explore = () => {
 }
 
 export default Explore
+export const getServerSideProps = async (context: any) => {
+
+  const res = await fetch(`https://newsapi.org/v2/top-headlines?country=us&apiKey=e3553a68781d448b87d4ebd624b4b888`)
+  const data = await res.json()
+  const trending = await data.articles
+  console.log(trending)
+  return {
+    props: {
+      trending
+    },
+  }
+}
