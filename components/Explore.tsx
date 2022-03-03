@@ -13,7 +13,7 @@ const Explore = () => {
         settrending(data.articles);
       })
 
-  }, [])
+  }, [trending[0]?.title])
   trending && console.log(trending[0]?.title);
 
   return (

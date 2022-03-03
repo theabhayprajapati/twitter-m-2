@@ -16,6 +16,7 @@
     "react-dom": "^17.0.2",
     "react-moment": "^1.1.1",
     "react-textarea-autosize": "^8.3.3",
+    "react-top-loading-bar": "^2.1.0",
     "tailwind-scrollbar-hide": "^1.1.7"
   },
   "devDependencies": {

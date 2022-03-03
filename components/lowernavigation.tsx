@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import { useSession } from 'next-auth/react'
 import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
-
+import LoadingBar from 'react-top-loading-bar'
 const LowerNav = () => {
 
     const router = useRouter()
@@ -20,9 +20,7 @@ const LowerNav = () => {
     return (
         <div className="bottom-0 text-white fixed h-14 bg-black z-50 border-t-[.5px] border-gray-800 md:hidden shadow-lg flex justify-evenly w-full items-center">
             <button onClick={() => router.push("/")} className='lowernav-btn '>
-
                 <HomeIcon className={`h-7 w-7 ${pathname === "/" && "text-blue-500"}`} />
-
             </button>
             <button onClick={() => router.push("/Explore")} className='lowernav-btn'>
                 <SearchIcon className={`h-7 ${pathname === "/Explore" && "text-blue-500"}`} />

@@ -5,6 +5,7 @@ import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
 import Moment from 'react-moment'
 import { db } from '../firebase'
+import Loadingbar from './Loadingbar'
 
 const TweetsSection = () => {
     const router = useRouter()
@@ -12,13 +13,18 @@ const TweetsSection = () => {
     const AlltweetsRef = collection(db, "tweets")
     const { data: session }: any = useSession()
     const username = session && (session?.user?.email).split("@")[0]
-
+    const [loading, setloading] = useState(0)
     useEffect(() => {
         // let querydaata = query(Alltweets, orderBy('desc'))
+
+
         let q = query(collection(db, "tweets"), orderBy('createdAt', "desc"))
         onSnapshot(q, (snapshot) => setAlltweets(snapshot.docs))
+
+        // setloading(0)
     }, [])
     console.log(Alltweets)
+
 
     const DotsButtonClicked = async (id: any, screen_name: any) => {
         console.log("delete button clicked", id)
@@ -31,23 +37,24 @@ const TweetsSection = () => {
             await deleteDoc(docRef)
         } else {
             alert('Access denied')
-    
+
         }
 
     }
     //Add this
-    if (!router.isFallback && username?.title) {
-        return <div>Loading...</div>;
-    }
+
+
+
     return (
         <div className='scrollbar-hide'>
+
             {
                 Alltweets ? (
                     Alltweets.map((alltweets: any) => {
                         return (
+
                             <div key={alltweets.id} className="text-white ">
                                 <div className="flex space-x-2 ">
-
 
 
                                     <div className="w-10% self-start " onClick={() => router.push(
