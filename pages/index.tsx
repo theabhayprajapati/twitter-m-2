@@ -21,15 +21,15 @@ const Home = () => {
             <Navigation />
           </div>
         </div>
-        <div className="border border-gray-900 col-span-2 overflow-y-auto scrollbar-hide">
+        <div className="border border-gray-900 col-span-2 overflow-y-auto md:scrollbar-hide">
           <Feed />
         </div>
         <div className="hidden md:inline-grid">
-          {/* <Explore /> */}
+          <Explore />
         </div>
 
       </main>
-      {/* <Nonsigninmembers /> */}
+     
 
 
     </div>
