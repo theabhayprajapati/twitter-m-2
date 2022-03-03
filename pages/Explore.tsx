@@ -40,7 +40,7 @@ const ExplorePage = ({ trending }: any) => {
                     <div className="bg-black px-3 sticky z-50 top-0 w-full">
                         <HeaderSection title="Explore" />
                     </div>
-                    <section className="overflow-y-scroll">
+                    <section className="overflow-y-scroll scrollbar-hide">
 
 
 
