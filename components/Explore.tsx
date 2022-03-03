@@ -2,18 +2,17 @@ import { SearchIcon } from '@heroicons/react/outline'
 import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
 
-const Explore = () => {
+const Explore = ({trending}: any) => {
   const router = useRouter()
-  const [trending, settrending] = useState<any>([])
-  //  fetch data from newsapi.org
-  useEffect(() => {
-    fetch(`https://newsapi.org/v2/top-headlines?country=in&apiKey=e3553a68781d448b87d4ebd624b4b888`)
-      .then(res => res.json())
-      .then(data => {
-        settrending(data.articles);
-      })
-
-  }, [trending[0]?.title])
+  // const [trending, settrending] = useState<any>([])
+  // //  fetch data from newsapi.org
+  // useEffect(() => {
+  //   fetch(`https://newsapi.org/v2/top-headlines?country=in&apiKey=e3553a68781d448b87d4ebd624b4b888`)
+  //     .then(res => res.json())
+  //     .then(data => {
+  //       settrending(data.articles);
+  //     })
+  // }, [trending[0]?.title])
   trending && console.log(trending[0]?.title);
 
   return (
@@ -81,13 +80,14 @@ const Explore = () => {
 export default Explore
 export const getServerSideProps = async (context: any) => {
 
-  const res = await fetch(`https://newsapi.org/v2/top-headlines?country=us&apiKey=e3553a68781d448b87d4ebd624b4b888`)
+  const res = await fetch(`https://newsapi.org/v2/top-headlines?country=in&apiKey=e3553a68781d448b87d4ebd624b4b888`)
   const data = await res.json()
-  const trending = await data.articles
-  console.log(trending)
+  const trending = data.articles
+  // console.log(trending.articles, '⭐')
+
   return {
-    props: {
-      trending
-    },
+      props: {
+          trending
+      },
   }
 }

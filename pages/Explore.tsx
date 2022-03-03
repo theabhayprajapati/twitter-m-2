@@ -78,7 +78,7 @@ const ExplorePage = ({ trending }: any) => {
                 </div>
                 <div className='hidden md:inline-grid'>
                     <div className="fixed">
-                        {/* <Explore /> */}
+                        <Explore />
                     </div>
                 </div>
             </main>
